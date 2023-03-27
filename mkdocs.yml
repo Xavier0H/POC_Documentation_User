@@ -1,0 +1,120 @@
+site_name: LaDocLibre
+dev_addr: '127.0.0.1:8080'
+
+theme:
+  name: 'material'
+  extra_css:
+  - stylesheets/extra.css   #Pour prendre en compte la palette de couleur dans extra.css
+  palette:
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default # Theme default blanc
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+      primary: green  # Couleur barre du haut
+      accent: deep purple #Couleur liens
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate # Theme slate noir
+      toggle:
+        icon: material/weather-night #également material/brightness-4
+        name: Switch to light mode  # peut etre mettre plutot "Switch to system preference"
+      primary: light green  # Couleur bar du haut
+      accent: lime #Couleur liens
+
+  #theme:
+  #  palette:
+  #    scheme: youtube
+
+
+  font : # peut etre devoir definir sur false pour les règle de confidentialité
+    text : Roboto  #   Style police pour tout le corps du test  ----  Voir la liste des fontstyle possible sur https://fonts.google.com/
+    code : Roboto Mono  #Style police pour blocs de code
+
+  language : fr
+  logo : asserts/logo.png
+  favicon : asserts/logo.png
+
+extra:
+  #homepage: https://example.com
+  consent:
+    title: Cookie consent
+    description: >-
+      Nous utilisons des cookies pour reconnaître vos visites répétées et vos préférences, ainsi que
+      pour mesurer l'efficacité de notre documentation et si les utilisateurs
+      trouver ce qu'ils recherchent. Avec votre consentement, vous nous aidez à
+      améliorer notre documentation.
+    cookies:
+      analytics:
+        name: Google Analytics
+        checked: false
+    actions:
+      - accept
+      - manage
+      - reject
+    #copyright: >
+    #  Copyright &copy; 2016 - 2022 Martin Donath –
+     # <a href="#__consent">Change cookie settings</a>
+
+  features:
+    - navigation.instant  # index de recherche survit à la navigation
+    - navigation.tracking # suivi des ancres est activé
+    - navigation.tabs # permet activé les onglets pour les sections de nivx supp (peut etre enlever)
+    #- navigation.tabs.sticky
+    #- navigation.sections
+    #- navigation.expand pour que les sous section soit nativement ouverte et non fermer
+    - search.suggest # suggestion de recherche
+    - search.highlight # mettre en surbrillance les recherches
+    - search.share #permet de partager ses recherches
+
+plugins:
+  - search :
+      lang: fr
+  - tags
+  - glightbox
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  #- toc:
+  #    permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+nav:
+  - Home: index.md
+  - Physique quantique: physique_quantique/physique_quantique.md
